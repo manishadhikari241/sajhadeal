@@ -35,6 +35,35 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Our Products</h3>
+            <div class="filters">
+                <form method="get" action="" role="form">
+                    <input type="hidden" name="action" value="projectsFind">
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">Selections</div>
+                        <div class="col-sm-9">
+
+
+                            <div class="form-check-inline">
+                                <input {{isset(request()->route()->parameters['filter'])&& request()->route()->parameters['filter']=='all_products'||  request()->route()->parameters ==null ?'checked':''}} class="product_filter form-check-input"
+                                       type="radio" name="product_filter"
+                                       value="all_products">
+                                <label class="form-check-label" for="gridCheck1">
+                                    All Products </label>
+                            </div>
+
+                            <div class="form-check-inline">
+                                <input {{isset(request()->route()->parameters['filter'])&& request()->route()->parameters['filter']=='sale'?'checked':''}} class="product_filter form-check-input"
+                                       type="radio" name="product_filter"
+                                       value="sale">
+                                <label class="form-check-label" for="gridCheck1">
+                                    Sale </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive">
@@ -219,6 +248,32 @@
                 "info": true,
                 "autoWidth": true
             });
+            $('.product_filter').click(function () {
+
+                $('input[name="product_filter"]:checked').each(function () {
+                    let filter = $(this).val();
+                    console.log(filter);
+                    var tempEditUrl = "{{route('all_products',':filter')}}";
+                    tempEditUrl = tempEditUrl.replace(':filter', filter);
+
+                    window.location.href = tempEditUrl;
+
+                    // $.ajax({
+                    //     type: 'get',
+                    //     url: document.url,
+                    //     data: {
+                    //         filter: filter
+                    //     },
+                    //     success: function (response) {
+                    //         console.log(response.url);
+                    //         // window.location.href = response.url
+                    //     }
+                    //
+                    // });
+                });
+            });
+
+
         });
     </script>
 

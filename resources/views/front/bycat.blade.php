@@ -1,8 +1,7 @@
-<div class="latest-section mb-5">
-    <div class="row">
+<div class="latest-section flex-wrap justify-content-center mb-5">
+    <div class="row justify-content-between">
         @foreach($products as $product)
-            <div class="col-md-3">
-                <div class="card">
+                <div class="card resize_card">
 
                     <div class="card-body p-0">
                         <figure>
@@ -46,7 +45,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         @endforeach
     </div>
 </div>

@@ -23,10 +23,15 @@
 //Route::group(['middleware'=>'visitors'],function() {
 use Illuminate\Support\Facades\Route;
 
+Route::group(['prefix' => 'blogs'], function () {
+    Route::any('/', 'BlogController@blogs')->name('blogs');
+    Route::any('/blogpage/{slug?}', 'BlogController@blogs_single')->name('blogs-single');
+    Route::get('/blogscategory/{slug?}', 'BlogController@blog_category')->name('blog-category');
+});
+
 Route::get('/register', 'RegistrationController@register')->name('register');
 Route::post('/register', 'RegistrationController@postRegister');
-Route::any('/blogs','BlogController@blogs')->name('blogs');
-Route::any('/blogpage','BlogController@blogs_single')->name('blogs-single');
+
 Route::get('/login', 'LoginController@login')->name('login');
 Route::post('/login', 'LoginController@postLogin');
 Route::post('/front_login', 'LoginController@frontLogin');
@@ -108,7 +113,7 @@ Route::get('/admin/delete_tag/{id}', 'admin\TagController@delete_tag')->name('de
 Route::get('/admin/add_products', 'admin\ProductController@view')->name('product_add');
 
 Route::post('/admin/store_products', 'admin\ProductController@store')->name('post_add_products');
-Route::get('/admin/all_products', 'admin\ProductController@view_all')->name('all_products');
+Route::any('/admin/all_products/{filter?}', 'admin\ProductController@view_all')->name('all_products');
 //new added
 //Route::get('/admin/view_products','ProductController@all_products')->name('view_products');
 
@@ -348,3 +353,50 @@ Route::post('/admin/add_coupon', 'admin\CouponController@store')->name('store_co
 Route::get('/admin/all_coupons', 'admin\CouponController@view_all')->name('all_coupons');
 Route::get('/admin/all_coupons/delete/{id}', 'admin\CouponController@delete')->name('delete_coupon');
 
+//---------------Blogs Setup Admin------------------
+
+
+Route::group(['namespace' => 'admin', 'prefix' => 'Blog', 'middleware' => 'admin'], function () {
+    Route::group(['prefix' => 'category'], function () {
+        Route::any('add_category', 'BlogsSetupController@add_category')->name('blog-add-category');
+        Route::get('delete_category_blog/{id?}', 'BlogsSetupController@delete_category')->name('blog-delete-category');
+        Route::post('edit_category/{id?}', 'BlogsSetupController@edit_category')->name('blog-edit-category');
+    });
+    Route::group(['prefix' => 'Tags'], function () {
+        Route::any('blog_tags', 'BlogsSetupController@blog_tags')->name('blog-tags');
+        Route::get('blog_tags_delete/{id?}', 'BlogsSetupController@blog_tags_delete')->name('blog-delete-tags');
+        Route::post('blog_tags_edit/{id?}', 'BlogsSetupController@blog_tags_edit')->name('blog-edit-tags');
+    });
+    Route::group(['prefix' => 'Tags'], function () {
+        Route::any('blog_author', 'BlogsSetupController@blog_author')->name('blog-author');
+        Route::get('blog_author_delete/{id?}', 'BlogsSetupController@blog_author_delete')->name('blog-delete-author');
+        Route::any('blog_author_edit/{id?}', 'BlogsSetupController@blog_author_edit')->name('blog-edit-author');
+    });
+    Route::any('add_blog', 'BlogsSetupController@add_blog')->name('add-blog');
+    Route::get('blog_delete/{id?}', 'BlogsSetupController@blog_delete')->name('blog-delete');
+    Route::get('blog_delete_image/{id?}', 'BlogsSetupController@blog_delete_image')->name('blog-delete-image');
+    Route::any('blog_edit/{id?}', 'BlogsSetupController@blog_edit')->name('blog-edit');
+    Route::get('blog_images', 'BlogsSetupController@blog_images')->name('blog-images');
+    Route::post('update-blog-image', 'BlogsSetupController@update_blog_image')->name('update-blog-image');
+
+    Route::group(['prefix' => 'Slides'], function () {
+        Route::any('blog_slides', 'BlogsSetupController@blog_slides')->name('blog-add-slides');
+        Route::get('delete_blog_slides/{id?}', 'BlogsSetupController@delete_blog_slides')->name('delete-blog-slides');
+        Route::any('edit_blog_slides/{id?}', 'BlogsSetupController@edit_blog_slides')->name('edit-blog-slides');
+
+    });
+    Route::group(['prefix' => 'Advertisement'], function () {
+        Route::any('blog_advertisement', 'BlogsSetupController@blog_add_advertisement')->name('blog-add-advertisement');
+        Route::get('delete_blog_advertisement/{id?}', 'BlogsSetupController@delete_blog_advertisement')->name('delete-blog-advertisement');
+        Route::any('edit_blog_advertisement/{id?}', 'BlogsSetupController@edit_blog_advertisement')->name('edit-blog-advertisement');
+
+    });
+
+
+});
+
+Route::group(['namespace' => 'admin','prefix' => 'Deal of The Day'], function () {
+    Route::any('update-deal', 'HotDealController@update_deal')->name('update-deal');
+    Route::get('delete_category_blog/{id?}', 'BlogsSetupController@delete_category')->name('blog-delete-category');
+    Route::post('edit_category/{id?}', 'BlogsSetupController@edit_category')->name('blog-edit-category');
+});

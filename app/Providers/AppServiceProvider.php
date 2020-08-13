@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Ad;
+use App\BlogCategory;
 use App\Brand;
 use App\category;
 use App\Product;
@@ -34,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
 //        dd('ok');
         Schema::defaultStringLength(191);
         //        $cart_content=Cart::session(Sentinel::getUser()->id)->getContent();
-        $setting=Setup::all()->last();
+        $setting = Setup::all()->last();
         View::share(compact('setting'));
         $last_item = Product::all()->last();
         View::share('item', $last_item);
@@ -44,12 +45,14 @@ class AppServiceProvider extends ServiceProvider
         View::share(compact('categories'));
         $child_categories = Category::all();
         View::share(compact('child_categories'));
-        $ads=Ad::all();
+        $ads = Ad::all();
         View::share(compact('ads'));
-        $brands=Brand::all();
+        $brands = Brand::all();
         View::share(compact('brands'));
-        $sizes=Size::all();
+        $sizes = Size::all();
         View::share(compact('sizes'));
+        $blogcategory = BlogCategory::where('status', 1)->get();
+        View::share(compact('blogcategory'));
     }
 }
 

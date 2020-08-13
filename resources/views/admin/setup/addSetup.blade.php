@@ -71,6 +71,7 @@
                                 </div>
 
 
+
                             </div>
 
 
@@ -162,6 +163,7 @@
                                 <textarea class="editor form-control" name="meta_description" placeholder="Brief description about website"></textarea>
                                 <small class="text-muted">Max 150 characters</small>
                             </div>
+
 
                         </div>
 

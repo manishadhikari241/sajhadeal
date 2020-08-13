@@ -132,6 +132,18 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <input type="hidden" name="hot_deal" value="0">
+                                        <div class="form-group">
+
+                                            <h4><span style="color: red;">*</span><label> Add to HotDeal?</label></h4>
+
+                                            Yes <input type="radio" name="hot_deal" value="1">
+                                            No <input type="radio" name="hot_deal" value="0"
+                                                      checked>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <input type="hidden" name="featured" value="0">
                                         <div class="form-group">
 

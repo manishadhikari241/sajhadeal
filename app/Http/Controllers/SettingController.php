@@ -71,6 +71,8 @@ class SettingController extends Controller
         $setting->detail_about_us=$request->detail_about_us;
         $setting->meta_keywords = $request->meta_keywords;
         $setting->meta_description = $request->meta_description;
+        $setting->site_title = $request->site_title;
+        $setting->site_description = $request->site_description;
 
 
         if($request->hasFile('logo')) {

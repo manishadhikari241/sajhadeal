@@ -40,8 +40,9 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 
-
     <link rel="stylesheet" href="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 
     @yield('styles')
 
@@ -80,24 +81,24 @@
         <ul class="navbar-nav ml-auto">
             <!-- Notifications Dropdown Menu -->
             {{--<li class="nav-item dropdown">--}}
-                {{--<a class="nav-link" data-toggle="dropdown" href="#">--}}
-                    {{--<i class="fa fa-bell fa-2x"></i>--}}
-                    {{--<span class="badge badge-warning navbar-badge">10</span>--}}
-                {{--</a>--}}
-                {{--<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">--}}
-                    {{--<span class="dropdown-item dropdown-header">15 Notifications</span>--}}
-                    {{--<div class="dropdown-divider"></div>--}}
+            {{--<a class="nav-link" data-toggle="dropdown" href="#">--}}
+            {{--<i class="fa fa-bell fa-2x"></i>--}}
+            {{--<span class="badge badge-warning navbar-badge">10</span>--}}
+            {{--</a>--}}
+            {{--<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">--}}
+            {{--<span class="dropdown-item dropdown-header">15 Notifications</span>--}}
+            {{--<div class="dropdown-divider"></div>--}}
 
-                    {{--unread notifications--}}
-                    {{--<a href="#" class="dropdown-item">--}}
-                        {{--<i class="fa fa-file mr-2"></i> 3 new reports--}}
-                        {{--<span class="float-right text-muted text-sm">2 days</span>--}}
-                    {{--</a>--}}
+            {{--unread notifications--}}
+            {{--<a href="#" class="dropdown-item">--}}
+            {{--<i class="fa fa-file mr-2"></i> 3 new reports--}}
+            {{--<span class="float-right text-muted text-sm">2 days</span>--}}
+            {{--</a>--}}
 
-                    {{--<div class="dropdown-divider"></div>--}}
-                    {{--<a href="" class="dropdown-item dropdown-footer">See All--}}
-                        {{--Notifications</a>--}}
-                {{--</div>--}}
+            {{--<div class="dropdown-divider"></div>--}}
+            {{--<a href="" class="dropdown-item dropdown-footer">See All--}}
+            {{--Notifications</a>--}}
+            {{--</div>--}}
             {{--</li>--}}
 
             {{--User Dropdown--}}
@@ -129,7 +130,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
-                <img src="{{ asset('admin_lte/dist/img/AdminLTELogo.png') }}" alt="Website Logo" class="brand-image img-circle elevation-3"
+                <img src="{{ asset('admin_lte/dist/img/AdminLTELogo.png') }}" alt="Website Logo"
+                     class="brand-image img-circle elevation-3"
                      style="opacity: .8">
                 <span>Admin</span>
                 <br>
@@ -139,18 +141,19 @@
             <!-- Sidebar -->
             <div class="sidebar" style="padding-bottom: 50px">
                 <!-- Sidebar user panel (optional) -->
-                {{--<div class="user-panel mt-3 pb-3 mb-3 d-flex">--}}
-                    {{--<div class="image">--}}
-                        {{--<img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
-                    {{--</div>--}}
-                    {{--<div class="info">--}}
-                        {{--<a href="#" class="d-block">Alexander Pierce</a>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+            {{--<div class="user-panel mt-3 pb-3 mb-3 d-flex">--}}
+            {{--<div class="image">--}}
+            {{--<img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
+            {{--</div>--}}
+            {{--<div class="info">--}}
+            {{--<a href="#" class="d-block">Alexander Pierce</a>--}}
+            {{--</div>--}}
+            {{--</div>--}}
 
-                <!-- Sidebar Menu -->
+            <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
                         <li class="nav-item">
@@ -162,14 +165,21 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('update-deal')}}"
+                               class="nav-link">
+                                <i class="fa fa-fire"></i>
+                                <p>Hot Deals</p>
+                            </a>
+                        </li>
 
                         {{--<li class="nav-item ">--}}
-                            {{--<a href="#" class="nav-link">--}}
-                                {{--<i class="nav-icon fa fa-pie-chart"></i>--}}
-                                {{--<p>--}}
-                                    {{--My profile--}}
-                                {{--</p>--}}
-                            {{--</a>--}}
+                        {{--<a href="#" class="nav-link">--}}
+                        {{--<i class="nav-icon fa fa-pie-chart"></i>--}}
+                        {{--<p>--}}
+                        {{--My profile--}}
+                        {{--</p>--}}
+                        {{--</a>--}}
                         {{--</li>--}}
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
@@ -274,7 +284,7 @@
                             </a>
 
                         </li>
-                                                <li class="nav-item has-treeview">
+                        <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-plane"></i>
                                 <p>
@@ -296,7 +306,7 @@
                                         <p>Delivered Orders</p>
                                     </a>
                                 </li>
-                                    <li class="nav-item">
+                                <li class="nav-item">
                                     <a href="{{route('order_cancel')}}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>Cancelled Orders</p>
@@ -313,7 +323,6 @@
 
                             </ul>
                         </li>
-
                         <li class="nav-item">
                             <a href="{{ route('all_users') }}" class="nav-link">
                                 <i class="nav-icon fa fa-user"></i>
@@ -369,10 +378,10 @@
                                     </a>
                                 </li>
                                 {{--<li class="nav-item">--}}
-                                    {{--<a href="{{ route('add_special_price') }}" class="nav-link">--}}
-                                        {{--<i class="fa fa-circle-o nav-icon"></i>--}}
-                                        {{--<p>Add Special By Price</p>--}}
-                                    {{--</a>--}}
+                                {{--<a href="{{ route('add_special_price') }}" class="nav-link">--}}
+                                {{--<i class="fa fa-circle-o nav-icon"></i>--}}
+                                {{--<p>Add Special By Price</p>--}}
+                                {{--</a>--}}
                                 {{--</li>--}}
                                 <li class="nav-item">
                                     <a href="{{route('add_special_category')}}" class="nav-link">
@@ -382,7 +391,7 @@
                                 </li>
                             </ul>
                         </li>
-                                                <li class="nav-item has-treeview">
+                        <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-sticky-note"></i>
                                 <p>
@@ -401,28 +410,110 @@
                             </ul>
                         </li>
 
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-book"></i>
+                                <p>
+                                    Blog Section
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('blog-add-category') }}" class="nav-link">
+                                        <i class="fa fa-object-group"></i>
+                                        <p>Add Category</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('blog-tags') }}" class="nav-link">
+                                        <i class="fa fa-tags"></i>
+                                        <p>Tags</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('blog-author') }}" class="nav-link">
+                                        <i class="fa fa-user"></i>
+                                        <p>Author</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('add-blog') }}" class="nav-link">
+                                        <i class="fa fa-user"></i>
+                                        <p>Add Blog</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('blog-images') }}" class="nav-link">
+                                        <i class="fa fa-user"></i>
+                                        <p>Blog Images & Seo</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-book"></i>
+                                <p>
+                                    Blog Slides & CTA's
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('blog-add-slides') }}" class="nav-link">
+                                        <i class="fa fa-object-group"></i>
+                                        <p>Add Slides</p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-book"></i>
+                                <p>
+                                    Blog Advertisement
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('blog-add-advertisement') }}" class="nav-link">
+                                        <i class="fa fa-object-group"></i>
+                                        <p>Add Advertisements</p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
                         {{--<li class="nav-item has-treeview">--}}
-                            {{--<a href="#" class="nav-link">--}}
-                                {{--<i class="nav-icon fa fa-television"></i>--}}
-                                {{--<p>--}}
-                                    {{--Ads Setup--}}
-                                    {{--<i class="fa fa-angle-left right"></i>--}}
-                                {{--</p>--}}
-                            {{--</a>--}}
-                            {{--<ul class="nav nav-treeview">--}}
-                                {{--<li class="nav-item">--}}
-                                    {{--<a href="{{ route('view_ads') }}" class="nav-link">--}}
-                                        {{--<i class="fa fa-circle-o nav-icon"></i>--}}
-                                        {{--<p>View Ads</p>--}}
-                                    {{--</a>--}}
-                                {{--</li>--}}
-                                {{--<li class="nav-item">--}}
-                                    {{--<a href="{{route('add_ads')}}" class="nav-link">--}}
-                                        {{--<i class="fa fa-circle-o nav-icon"></i>--}}
-                                        {{--<p>Manage Ads</p>--}}
-                                    {{--</a>--}}
-                                {{--</li>--}}
-                            {{--</ul>--}}
+                        {{--<a href="#" class="nav-link">--}}
+                        {{--<i class="nav-icon fa fa-television"></i>--}}
+                        {{--<p>--}}
+                        {{--Ads Setup--}}
+                        {{--<i class="fa fa-angle-left right"></i>--}}
+                        {{--</p>--}}
+                        {{--</a>--}}
+                        {{--<ul class="nav nav-treeview">--}}
+                        {{--<li class="nav-item">--}}
+                        {{--<a href="{{ route('view_ads') }}" class="nav-link">--}}
+                        {{--<i class="fa fa-circle-o nav-icon"></i>--}}
+                        {{--<p>View Ads</p>--}}
+                        {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li class="nav-item">--}}
+                        {{--<a href="{{route('add_ads')}}" class="nav-link">--}}
+                        {{--<i class="fa fa-circle-o nav-icon"></i>--}}
+                        {{--<p>Manage Ads</p>--}}
+                        {{--</a>--}}
+                        {{--</li>--}}
+                        {{--</ul>--}}
                         {{--</li>--}}
                     </ul>
                 </nav>
@@ -502,6 +593,7 @@
 <script src="{{asset('admin_lte/plugins/knob/jquery.knob.js')}}"></script>
 <!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+
 <script src="{{asset('admin_lte/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- datepicker -->
 <script src="{{asset('admin_lte/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
@@ -521,7 +613,9 @@
 
 {{--SELECT 2--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+{{--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>--}}
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
 @yield('script')
 

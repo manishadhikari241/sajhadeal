@@ -27,105 +27,31 @@ $(document).ready(function($) {
 	};
 	loader();
 
-	var carousel = function() {
-		$('.carousel').owlCarousel({
-			loop: true,
-			margin: 10,
-			nav: true,
-			stagePadding: 5,
-			nav: false,
-			navText: ['<span class="icon-chevron-left">', '<span class="icon-chevron-right">'],
-			responsive:{
-				0:{
-					items: 1
-				},
-				600:{
-					items: 2
-				},
-				1000:{
-					items: 3
-				}
-			}
-		});
-
-		$('.nonloop-block-13').owlCarousel({
-	    center: false,
-	    items: 1,
-	    loop: false,
-			stagePadding: 0,
-	    margin: 20,
-	    nav: true,
-			navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'],
-	    responsive:{
-        600:{
-        	margin: 20,
-          items: 2
-        },
-        1000:{
-        	margin: 20,
-          items: 2
-        },
-        1200:{
-        	margin: 20,
-          items: 3
-        }
-	    }
-		});
-
-		$('.loop-block-31').owlCarousel({
-			loop: false,
-			mouseDrag: false,
-			touchDrag: false,
-			margin: 0,
-			nav: true,
-			items: 1,
-			autoplay: true,
-			stagePadding: 0,
-			nav: true,
-			navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'],
-			animateOut: 'fadeOut',
-    	animateIn: 'fadeIn',
-		});
-
-		$('.nonloop-block-11').owlCarousel({
-	    center: false,
-	    items: 1,
-	    loop: false,
-			stagePadding: 0,
-	    margin: 30,
-	    nav: true,
-			navText: ['<span class="icon-chevron-left">', '<span class="icon-chevron-right">'],
-	    responsive:{
-        600:{
-        	stagePadding: 0,
-          items:1
-        },
-        800:{
-        	stagePadding: 40,
-          items:2
-        },
-        1000:{
-        	stagePadding: 80,
-          items:3
-        }
-	    }
-		});
-
-		$('.nonloop').owlCarousel({
-	    center: true,
-	    items:2,
-	    loop:false,
-	    margin:10,
-	    nav: true,
-			navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'],
-	    responsive:{
-        600:{
-          items:2
-        }
-	    }
-		});
-	};
-	carousel();
+    var carousel = function() {
+        $('.home-slider').owlCarousel({
+            loop:true,
+            autoplay: true,
+            margin:0,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            nav:true,
+            autoplayHoverPause: false,
+            items: 1,
+            navText : ["<p><span class='ion-md-arrow-back'></span> Forward</p>","<p>Next <span class='ion-md-arrow-forward'></span></p>"],
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:1
+                },
+                1000:{
+                    items:1
+                }
+            }
+        });
+    };
+    carousel();
 
 	// scroll
 	var scrollWindow = function() {

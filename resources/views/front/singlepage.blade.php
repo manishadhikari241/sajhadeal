@@ -1,5 +1,5 @@
 @extends('front.master_front')
-@section('title','SajhaDeals| '.$product->title)
+@section('title',$product->seo ? $product->seo->seo_title:'')
 @section('content')
 
     <section id="single_page">
@@ -78,16 +78,27 @@
                         </div>
                         <div class="product_short_info-price">
                             @if($product->valid_special_price()==1)
-                                <span class="discount-price">
-        Rs.{{$product->price}}
-    </span>
+
                                 <span class="actual-price text-muted">
         Rs.{{ $product->sale_price }}
     </span>
+                                <span class="tag">{{round(($product->price-$product->sale_price)/$product->price*100,0)  }}
+                                    % off</span>
+                                <br>
+                                <span class="line-through"
+                                      style="text-decoration: line-through">Rs. {{$product->price}}</span>
+                                {{--<span style="price"--}}
+                                      {{--class="price">-{{round(($product->price-$product->sale_price)/$product->price*100,2)  }}--}}
+                                    {{--%</span>--}}
                             @else
                                 <span class="actual-price text-muted">
+
             Rs. {{ $product->price }}
             </span>
+                                <br>
+                                <span class="line-through" style="text-decoration: line-through">123</span>
+                                {{--<span class="price">-{{round(($product->price-$product->sale_price)/$product->price*100,2)  }}--}}
+                                    {{--%</span>--}}
                             @endif
                         </div>
                         <hr>

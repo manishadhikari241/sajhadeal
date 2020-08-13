@@ -250,21 +250,21 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        // $terms = explode(' ',request('query'));
         $terms = request('query');
+        $searchquery = explode(' ',request('query'));
 
         if ($request->ajax()) {
 
             if ($request->has('maxprice') || $request->has('size') || $request->has('minprice') || $request->has('sort')) {
-
+//dd($terms);
 //
-                $query = Product::where(function ($q) use ($terms) {
-                    foreach ($terms as $term) {
+
+                $query = Product::where('status', 1)->where('title', $terms)->orWhere('sku', 'like', '%' . $terms . '%')->where(function ($q) use ($searchquery) {
+                    foreach ($searchquery as $term) {
                         $q->orWhere('title', 'like', '%' . $term . '%');
                         $q->orWhere('sku', 'like', '%' . $term . '%');
                     }
-                })->get();
-
+                });
                 if ($request->has('brand')) {
                     $query->join('brands', 'brands.id', '=', 'products.brand_id');
                     $query->whereIn('brands.slug', $request->brand);
@@ -312,7 +312,6 @@ class ProductController extends Controller
                 $products = $query->select('products.*')
                     ->where('products.status', '=', 1)
                     ->get();
-
 
                 return view('front.bycat', compact('products'));
             }
@@ -505,7 +504,16 @@ class ProductController extends Controller
                     ->get();
 
                 $category_title = "Special Price";
-            } elseif ($slug == 'most_viewed') {
+            } elseif ($slug == 'hotdeal') {
+                $products = Product::
+                where('status', 1)
+                    ->where('hot_deal',1)
+
+                    ->get();
+
+                $category_title = "Deal of the Day";
+            }
+            elseif ($slug == 'most_viewed') {
                 $products = Product::
                 where('status', 1)->
                 orderBy('views', 'desc')->get();

@@ -179,6 +179,23 @@
                                     <textarea class="editor form-control" name="meta_description" placeholder="Brief description about website">{{ $setting->meta_description }}</textarea>
                                     <small class="text-muted">Max 150 characters</small>
                                 </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">Site Title</label>
+                                        <div class="inner-addon left-addon">
+
+                                            <input value="{{$setting->site_title}}" type="text" name="site_title" class="form-control" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">Site Description</label>
+                                        <div class="inner-addon left-addon">
+
+                                            <input value="{{$setting->site_description}}" type="text" name="site_description" class="form-control" required/>
+                                        </div>
+                                    </div>
+
     
                             </div>
                         </div>

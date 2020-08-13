@@ -178,6 +178,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
         //alert
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
@@ -240,6 +241,7 @@ return [
 
         //alert
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Helper'    => App\Helper\HotDeal::class,
 
     ],
 

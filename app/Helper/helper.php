@@ -7,3 +7,4 @@ function seperator($depth)
     }
     return $space;
 }
+

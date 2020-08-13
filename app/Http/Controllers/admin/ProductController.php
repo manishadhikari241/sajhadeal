@@ -8,12 +8,14 @@ use App\Color;
 use App\Image;
 use App\Notifications\NewProduct;
 use App\Product;
+use App\Seo;
 use App\Size;
 use App\Stock;
 use App\Tag;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
@@ -24,10 +26,28 @@ class ProductController extends Controller
         $this->middleware('admin');
     }
 
-    public function view_all()
+    public function view_all(Request $request)
     {
-        $products = Product::all();
-        return view('admin.display.all_products', compact('products'));
+        if ($request->isMethod('get')) {
+            if ($request->filter) {
+                if ($request->filter == 'sale') {
+                    Session::put('route', 'sale');
+                    $products = Product::where('on_sale', 1)->get();
+                    return view('admin.display.all_products', compact('products'));
+                }
+                if ($request->filter == 'all_products') {
+                    Session::forget('route');
+                    $products = Product::all();
+                    return view('admin.display.all_products', compact('products'));
+                }
+
+
+            }
+            $products = Product::all();
+            return view('admin.display.all_products', compact('products'));
+        }
+
+        return false;
     }
 
     public function store(Request $request)
@@ -64,6 +84,7 @@ class ProductController extends Controller
         } else {
             $products = new Product();
             $products->on_sale = $request->on_sale;
+            $products->hot_deal = $request->hot_deal;
             $products->title = $request->title;
             $products->price = $request->price;
             $products->sale_price = $request->sale_price;
@@ -80,8 +101,8 @@ class ProductController extends Controller
             $products->video = $request->video;
             $products->size_variation = $request->size_type;
 
-//            $products->seo_keyword = $request->seo_keyword;
-//            $products->seo_description = $request->seo_description;
+            $products->seo_keyword = $request->seo_keyword;
+            $products->seo_description = $request->seo_description;
 
             $products->save();
 
@@ -116,6 +137,7 @@ class ProductController extends Controller
                 $products->seo()->create([
                     'keyword' => $request['seo_keyword'],
                     'description' => $request['seo_description'],
+                    'seo_title' => $request['seo_title'],
                 ]);
             }
 
@@ -290,6 +312,7 @@ class ProductController extends Controller
         } else {
             $products = Product::findOrFail($id);
             $products->on_sale = $request->on_sale;
+            $products->hot_deal = $request->hot_deal;
             $products->title = $request->title;
             $products->sku = $request->sku;
             $products->price = $request->price;
@@ -307,7 +330,7 @@ class ProductController extends Controller
             $products->special_from = $request->special_start_date;
             $products->special_to = $request->special_end_date;
             $products->save();
-                $products->category()->sync($request->category_id);
+            $products->category()->sync($request->category_id);
             if ($request->size_type == 0) {
                 $products->stocks()->delete();
                 $products->stock_quantity = $request->stock_quantity;
@@ -336,12 +359,27 @@ class ProductController extends Controller
             }
 
             //seos
-            $products->seo()->delete();
+//            $products->seo()->delete();
             if (isset($request->seo_keyword)) {
-                $products->seo()->create([
-                    'seo_keyword' => $request['seo_keyword'],
-                    'seo_description' => $request['seo_description'],
-                ]);
+                if ($products->seo == null) {
+                    $seo = Seo::create(['seo_keyword' => $request->seo_keyword, 'product_id' => $products->id]);
+                } else {
+                    $products->seo->updateorcreate(['product_id' => $products->id], ['seo_keyword' => $request->seo_keyword]);
+                }
+            }
+            if (isset($request->seo_description)) {
+                if ($products->seo == null) {
+                    $seo = Seo::create(['seo_description' => $request->seo_description, 'product_id' => $products->id]);
+                } else {
+                    $products->seo->updateorcreate(['product_id' => $products->id], ['seo_description' => $request->seo_description]);
+                }
+            }
+            if (isset($request->seo_title)) {
+                if ($products->seo == null) {
+                    $seo = Seo::create(['seo_title' => $request->seo_title, 'product_id' => $products->id]);
+                } else {
+                    $products->seo->updateorcreate(['product_id' => $products->id], ['seo_title' => $request->seo_title]);
+                }
             }
 
             //insertion to faq database
@@ -403,6 +441,10 @@ class ProductController extends Controller
 //        return redirect()->back()->with('success','Product Added Successfully');
 
             Session::flash('success', 'Product Edited Successfully');
+            if (Session::has('route')) {
+                return response()->json(['success' => 'Product Edited Successfully', 'route' => '/admin/all_products/' . Session::get('route')], 200);
+
+            }
             return response()->json(['success' => 'Product Edited Successfully', 'route' => '/admin/all_products'], 200);
         }
     }

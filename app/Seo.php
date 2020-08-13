@@ -10,6 +10,7 @@ class Seo extends Model
         'seo_keyword',
         'seo_description',
         'product_id',
+        'seo_title'
     ];
     public function product(){
         return $this->hasOne(Product::Class,'product_id');

@@ -173,6 +173,19 @@
 
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <input type="hidden" name="hot_deal" value="0">
+                                                <div class="form-group">
+
+                                                    <h4><span style="color: red;">*</span><label> Add to HotDeal?</label></h4>
+
+                                                    Yes <input type="radio" name="hot_deal" value="1"
+                                                               @if($product->hot_deal == 1) checked @endif>
+                                                    No <input type="radio" name="hot_deal" value="0"
+                                                              @if($product->hot_deal == 0) checked @endif>
+
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <hr>
@@ -532,6 +545,11 @@
                                                 <label>SEO Description</label>
                                                 <textarea name="seo_description" rows="3"
                                                           class="form-control">@if($product->seo()->exists()){{ $product->seo->seo_description }}@endif</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>SEO Title</label>
+                                                <textarea name="seo_title"
+                                                          class="form-control">@if($product->seo()->exists()){{ $product->seo->seo_title }}@endif</textarea>
                                             </div>
                                         </div>
                                     </div>

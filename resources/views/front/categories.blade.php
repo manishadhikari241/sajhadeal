@@ -18,8 +18,9 @@
                         <div class="banner owl-carousel">
                             <div class="slider-images relative owl-theme" style="max-height: 450px">
                                 <a href="#">
-                                    <img src="{{asset('images/category/'.$cat->category_image)}}" alt="" class="img-responsive"
-                                        style="height: 160px;" width="100%">
+                                    <img src="{{asset('images/category/'.$cat->category_image)}}" alt=""
+                                         class="img-responsive"
+                                         style="height: 160px;" width="100%">
                                 </a>
                             </div>
                         </div>
@@ -180,51 +181,62 @@
                                     <span class="center">No Products To Show.</span>
                                 @endif
                                 @foreach($products as $product)
-                                    <div class="card">
+                                        <div class="card resize_card">
 
-                                        <div class="card-body p-0">
-                                            <figure>
+                                            <div class="card-body p-0">
 
-                                                @foreach($product->images as $image)
-                                                    @if($image->is_main==1)
-                                                        <a href="{{route('view_details',$product->slug)}}"><img
-                                                                    src="{{ asset($image->image) }}"
-                                                                    alt="{{ $product->title }}"></a>
-                                                    @endif
-                                                @endforeach
+                                                @if(isset(request()->route()->parameters['slug'])&& request()->route()->parameters['slug']=='sale')
+                                                    <span class="product-label discount">-{{round(($product->price-$product->sale_price)/$product->price*100,2)  }}
+                                                        %</span>
+                                                @elseif($product->on_sale==1)
+                                                    <span class="product-label discount">-{{round(($product->price-$product->sale_price)/$product->price*100,2)  }}
+                                                        %</span>
+                                                @endif
+                                                <figure>
 
-                                            </figure>
-                                        </div>
+                                                    @foreach($product->images as $image)
+                                                        @if($image->is_main==1)
+                                                            <a href="{{route('view_details',$product->slug)}}"><img
+                                                                        src="{{ asset($image->image) }}"
+                                                                        alt="{{ $product->title }}"></a>
+                                                        @endif
+                                                    @endforeach
 
-                                        <div class="card-footer">
-                                            <div class="special-product_name">
-                                                <a href="{{route('view_details',$product->slug)}}">
-                                                    <span>{{ $product->title }}</span></a>
+                                                </figure>
                                             </div>
-                                            <div class="special-product_price">
-                                                <div class="text-left"><span>Rs.</span><span>
-                                                    @if($product->valid_special_price()==1)
-                                                            {{ $product->sale_price }}
-                                                        @else
-                                                            {{ $product->price }}
-                                                        @endif</span>
+
+                                            <div class="card-footer">
+                                                <div class="special-product_name">
+                                                    <a href="{{route('view_details',$product->slug)}}">
+                                                        <span>{{ $product->title }}</span></a>
                                                 </div>
-                                                <div class="text-right"></div>
+                                                <div class="special-product_price">
+                                                    <div class="text-left"><span>Rs.</span><span>
+                                                    @if($product->valid_special_price()==1)
+                                                                {{ $product->sale_price }}
+                                                            @else
+                                                                {{ $product->price }}
+                                                            @endif</span>
+                                                    </div>
+                                                    <div class="text-right"></div>
 
-                                            </div>
-                                            <div class="buttons">
-                                                <a href="{{route('add_cart',$product->id)}}" class="add_to_cart ">
-                                                    <span><i class="icofont-basket"></i></span>
+                                                </div>
+                                                <div class="buttons">
+                                                    <a href="{{route('add_cart',$product->id)}}" class="add_to_cart ">
+                                                        <span><i class="icofont-basket"></i></span>
 
-                                                    <span>Add to cart</span> </a>
-                                                <a href="{{route('postWishlist',$product->id)}}"
-                                                   class="add-to-wishlist">
+                                                        <span>Add to cart</span> </a>
+                                                    <a href="{{route('postWishlist',$product->id)}}"
+                                                       class="add-to-wishlist">
                                 <span><i class="icofont-heart-alt"
                                          uk-tooltip="title: Wishlist; pos: left"></i></span>
-                                                </a>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+
+
+
                                 @endforeach
                             </div>
                         </div>
@@ -273,6 +285,7 @@
         {{--});--}}
         {{--@endforeach--}}
         {{--});--}}
+
         $(function () {
             $('.item_filter').click(function () {
                 // $('#productData').html('<div id="loaderpro" style="" ></div>');
@@ -340,6 +353,6 @@
 
 
     </script>
-    
- 
+
+
 @endsection

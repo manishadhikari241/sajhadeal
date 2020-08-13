@@ -84,6 +84,9 @@
             </div>
             {{--<div class="loaderoverlay"></div>--}}
         </div>
+        <button style="background-color: #773292; color: #fff; border: none; padding: 5px 10px; border-radius: 2px"
+                type="button" id="payment-button">Pay with Khalti
+        </button>
         <div class="container check-out uk-margin-bottom">
             <form action="" id="msform" method="post">
                 <ul class="liststyle--none progressbar" id="progressbar">
@@ -126,7 +129,7 @@
                                                    @if($preset_address != null) value="{{$preset_address->first_name}}" @endif>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="uk-margin">
                                         <label class="uk-form-label" for="form-stacked-text"><span class="address_error"
                                                                                                    style="display: none; color: red;">*</span>
@@ -299,67 +302,69 @@
                 <fieldset class="">
                     <div class="row paymenting field">
 
-                        {{--<div class="col-md-4">--}}
-                        {{--<div class="payment-method__container box-shadow">--}}
-                        {{--<h4 style="background: #f1f1f1;padding: 15px;color: black;margin: 0;">--}}
-                        {{--Payment method--}}
-                        {{--</h4>--}}
-                        {{--<div id="payment" class="checkout-payment">--}}
-                        {{--<ul class=" payment_methods liststyle--none uk-margin-bottom">--}}
+                        <div class="col-md-4">
+                        <div class="payment-method__container box-shadow">
+                        <h4 style="background: #f1f1f1;padding: 15px;color: black;margin: 0;">
+                        Payment method
+                        </h4>
+                        <div id="payment" class="checkout-payment">
+                        <ul class=" payment_methods liststyle--none uk-margin-bottom">
 
-                        {{--<li class="payment_method payment_method_ebanks">--}}
-
-
-                        {{--<div class="payment_box payment_method_banks">--}}
+                        <li class="payment_method payment_method_ebanks">
 
 
-                        {{--<div class="radio d-block">--}}
-                        {{--<label class="d-flex align-items-center">--}}
-                        {{--<input type="radio" name="optionsRadios" id="optionsRadios1"--}}
-                        {{--class="uk-radio input-radio"--}}
-                        {{--value="option1" checked>--}}
-                        {{--<figure class="payment-method__logo-box">--}}
-                        {{--<img src="http://1.bp.blogspot.com/-cOpncwOZ2sM/VdbAtf3pxlI/AAAAAAAAAKE/FX2nWmG1ZWo/s1600/esewa.png"--}}
-                        {{--alt="">--}}
-                        {{--</figure>--}}
+                        <div class="payment_box payment_method_banks">
 
-                        {{--</label>--}}
-                        {{--</div>--}}
-                        {{--<div class="radio d-block">--}}
-                        {{--<label class="d-flex align-items-center">--}}
-                        {{--<input type="radio" name="optionsRadios" id="optionsRadios2"--}}
-                        {{--class="uk-radio input-radio"--}}
-                        {{--value="option2">--}}
-                        {{--<figure class="payment-method__logo-box">--}}
-                        {{--<img src="https://cdn-images-1.medium.com/max/1006/1*xqUNa2hUbiis04Z2XTr4Jw.png"--}}
-                        {{--alt="">--}}
-                        {{--</figure>--}}
 
-                        {{--</label>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--</li>--}}
+                        <div class="radio d-block">
+                        <label class="d-flex align-items-center">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1"
+                        class="uk-radio input-radio"
+                        value="option1" checked>
+                        <figure class="payment-method__logo-box">
+                        <img src="http://1.bp.blogspot.com/-cOpncwOZ2sM/VdbAtf3pxlI/AAAAAAAAAKE/FX2nWmG1ZWo/s1600/esewa.png"
+                        alt="">
+                        </figure>
 
-                        {{--<li class="payment_method payment_method_cod">--}}
-                        {{--<input id="payment_method_cod" type="radio" class="uk-radio input-radio"--}}
-                        {{--name="payment_method" value="cod">--}}
+                        </label>
+                        </div>
+                        <div class="radio d-block">
+                        <label class="d-flex align-items-center">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2"
+                        class="uk-radio input-radio"
+                        value="option2">
+                        <figure class="payment-method__logo-box">
+                        <img src="https://cdn-images-1.medium.com/max/1006/1*xqUNa2hUbiis04Z2XTr4Jw.png"
+                        alt="">
+                        </figure>
 
-                        {{--<label for="payment_method_cod" style="marign-left:20px">Cash on--}}
-                        {{--delivery </label>--}}
-                        {{--<div class="payment_box payment_method_cod" style="display:none;">--}}
-                        {{--<p>Pay with cash upon delivery.</p>--}}
-                        {{--</div>--}}
-                        {{--</li>--}}
-                        {{--</ul>--}}
+                        </label>
+                        </div>
+                        </div>
+                        </li>
 
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
+                        <li class="payment_method payment_method_cod">
+                        <input id="payment_method_cod" type="radio" class="uk-radio input-radio"
+                        name="payment_method" value="cod">
+
+                        <label for="payment_method_cod" style="marign-left:20px">Cash on
+                        delivery </label>
+                        <div class="payment_box payment_method_cod" style="display:none;">
+                        <p>Pay with cash upon delivery.</p>
+                        </div>
+                        </li>
+                        </ul>
+
+                        </div>
+                        </div>
+                        </div>
                         <div class="col-md-12">
                             <div>
                                 <div class="confirm-order__container box-shadow">
                                     <h4 style="background: #f1f1f1;padding: 15px;color: black;margin: 0;">Confirm
                                         order</h4>
+                                    <button style="background-color: #773292; color: #fff; border: none; padding: 5px 10px; border-radius: 2px" type="button" id="payment-button">Pay with Khalti</button>
+
                                     <div class="panel panel-default no-border-shadow">
                                         <div>
                                             <div class="panel-body">
@@ -471,6 +476,37 @@
 @endsection
 
 @section('script')
+    <script src="https://khalti.com/static/khalti-checkout.js"></script>
+
+    <script>
+        var config = {
+            // replace the publicKey with yours
+            "publicKey": "test_public_key_63eacc06e41f42969797c02d47c72b54",
+            "productIdentity": "1234567890",
+            "productName": "Dragon",
+            "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+            "eventHandler": {
+                onSuccess (payload) {
+                    // hit merchant api for initiating verfication
+                    console.log(payload);
+                },
+                onError (error) {
+                    console.log(error);
+                },
+                onClose () {
+                    console.log('widget is closing');
+                }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        var btn = document.getElementById("payment-button");
+        btn.onclick = function () {
+            console.log('ok');
+            checkout.show({amount: 1000});
+        }
+
+    </script>
 
     <script>
         $('#shippingBox').val();
@@ -607,6 +643,7 @@
     </script>
     {{--//coupon code--}}
     <script>
+
         $('#apply_coupon').on('click', function (e) {
             e.preventDefault();
             $('#coupon_error').hide();
@@ -638,16 +675,17 @@
         });
 
     </script>
-    
+
     <script>
 
       fbq('track', 'InitiateCheckout');
-    
+
     </script>
-    
+
     <script>
       fbq('track', 'Purchase');
-    
+
     </script>
+
 
 @endsection
