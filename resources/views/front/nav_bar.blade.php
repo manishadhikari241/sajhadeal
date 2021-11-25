@@ -1,27 +1,27 @@
 <header class="header" id="header">
 
-    <div class="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <span class="mr-2"> <i class="icofont-phone mr-1"></i> Call Us : </span><span>01-<a
-                                href="tel:+977{{ isset($setting) ? $setting->company_number : '' }}">{{ isset($setting) ? $setting->company_number : '' }}</a></span>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="">Go far with Lifestyle</div>
+    {{--<div class="top-header">--}}
+        {{--<div class="container">--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-md-3">--}}
+                    {{--<span class="mr-2"> <i class="icofont-phone mr-1"></i> Call Us : </span><span>01-<a--}}
+                                {{--href="tel:+977{{ isset($setting) ? $setting->company_number : '' }}">{{ isset($setting) ? $setting->company_number : '' }}</a></span>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-6 ">--}}
+                    {{--<div class="">Go far with Lifestyle</div>--}}
 
-                </div>
-                <div class="col-md-3">
-                    <span class="mr-2"> <i class="icofont-email mr-1"></i> Mail Us : </span><span><a
-                                href="mailto:{{ isset($setting) ? $setting->email : '' }}">{{ isset($setting) ? $setting->email : '' }}</a></span>
+                {{--</div>--}}
+                {{--<div class="col-md-3">--}}
+                    {{--<span class="mr-2"> <i class="icofont-email mr-1"></i> Mail Us : </span><span><a--}}
+                                {{--href="mailto:{{ isset($setting) ? $setting->email : '' }}">{{ isset($setting) ? $setting->email : '' }}</a></span>--}}
 
-                </div>
+                {{--</div>--}}
 
-            </div>
+            {{--</div>--}}
 
-        </div>
+        {{--</div>--}}
 
-    </div>
+    {{--</div>--}}
     <div class="mid-header ">
         <div class="container">
             <div class="row align-items-center">

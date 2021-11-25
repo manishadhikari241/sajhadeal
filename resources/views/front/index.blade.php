@@ -508,42 +508,42 @@
 
 
     </section>
-    <div class="latest-section mb-5">
-        <div class="container">
-            <div class="grid-section--title">
-                <div class="heading center">
-                    <h2>Latest News</h2>
-                </div>
-                <hr>
-            </div>
-            <div class="row mb-3">
+    {{--<div class="latest-section mb-5">--}}
+        {{--<div class="container">--}}
+            {{--<div class="grid-section--title">--}}
+                {{--<div class="heading center">--}}
+                    {{--<h2>Latest News</h2>--}}
+                {{--</div>--}}
+                {{--<hr>--}}
+            {{--</div>--}}
+            {{--<div class="row mb-3">--}}
 
-                <div class="latest-slider owl-carousel ">
-                    @foreach($latest_blogs as $blog)
-                        <div class="col-md-12">
-                            <a href="{{route('blogs-single',$blog->slug)}}" class="blog-entry"
-                               data-animate-effect="fadeIn">
-                                <img src="{{asset('images/blogs/blogimages/'.$blog->images->first()->image)}}"
-                                     style="height: 200px " alt="Image placeholder">
-                                <br>
-                                <div class="blog-content-body">
-                                    <div class="post-meta">
-                                        <span class="mr-2">{{\Illuminate\Support\Carbon::make($blog->created_at)->format('M-d-Y')}}</span>
-                                        &bullet;
+                {{--<div class="latest-slider owl-carousel ">--}}
+                    {{--@foreach($latest_blogs as $blog)--}}
+                        {{--<div class="col-md-12">--}}
+                            {{--<a href="{{route('blogs-single',$blog->slug)}}" class="blog-entry"--}}
+                               {{--data-animate-effect="fadeIn">--}}
+                                {{--<img src="{{asset('images/blogs/blogimages/'.$blog->images->first()->image)}}"--}}
+                                     {{--style="height: 200px " alt="Image placeholder">--}}
+                                {{--<br>--}}
+                                {{--<div class="blog-content-body">--}}
+                                    {{--<div class="post-meta">--}}
+                                        {{--<span class="mr-2">{{\Illuminate\Support\Carbon::make($blog->created_at)->format('M-d-Y')}}</span>--}}
+                                        {{--&bullet;--}}
                                         {{--<span class="ml-2"><span class="fa fa-comments"></span> 3</span>--}}
-                                    </div>
-                                    <h3>{{$blog->title}}</h3>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
+                                    {{--</div>--}}
+                                    {{--<h3>{{$blog->title}}</h3>--}}
+                                {{--</div>--}}
+                            {{--</a>--}}
+                        {{--</div>--}}
+                    {{--@endforeach--}}
 
 
-                </div>
-            </div>
+                {{--</div>--}}
+            {{--</div>--}}
 
-        </div>
-    </div>
+        {{--</div>--}}
+    {{--</div>--}}
 
 
 

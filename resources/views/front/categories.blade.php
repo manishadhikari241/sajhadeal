@@ -1,5 +1,5 @@
 @extends('front.master_front')
-@section('title','SajhaDeal | ' . $category_title)
+@section('title','E-commerce | ' . $category_title)
 
 @section('content')
 
@@ -34,7 +34,7 @@
 
                         <ul uk-accordion>
                             <li class="">
-                                <a class="uk-accordion-title" href="#"><h5>Category</h5></a>
+                                <a class="uk-accordion-title category_page" href="#"><h5>Category</h5></a>
                                 <div class="uk-accordion-content">
                                     <div class="scrollbar   mCustomScrollbar">
                                         <ul>
@@ -74,7 +74,7 @@
                                 </div>
                             </li>
                             <li class="">
-                                <a class="uk-accordion-title" href="#"><h5> Price</h5></a>
+                                <a class="uk-accordion-title category_page" href="#"><h5> Price</h5></a>
                                 <div class="uk-accordion-content">
                                     <div class="price-list ">
                                         {{--<form action="{{ url()->current() }}" method="get">--}}
@@ -116,7 +116,7 @@
                             {{--@endif--}}
                             @if(!empty($sizes))
                                 <li class="">
-                                    <a class="uk-accordion-title" href="#"><h5> Size</h5></a>
+                                    <a class="uk-accordion-title category_page" href="#"><h5> Size</h5></a>
                                     <div class="uk-accordion-content brand__filter">
                                         <form>
                                             @foreach($sizes as $size)

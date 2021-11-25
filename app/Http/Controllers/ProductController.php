@@ -90,7 +90,6 @@ class ProductController extends Controller
 
             if ($request->has('maxprice') || $request->has('size') || $request->has('minprice') || $request->has('sort')) {
 
-//                dd($request->size);
                 $categor = Category::where('slug', $id)->first();
                 $children = Category::where('parent_id', $categor->id)->get();
 

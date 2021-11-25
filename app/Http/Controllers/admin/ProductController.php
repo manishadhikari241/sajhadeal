@@ -79,6 +79,8 @@ class ProductController extends Controller
             'special_start_date' => 'nullable|date_format:Y-m-d',
             'special_end_date' => 'nullable|date_format:Y-m-d|after_or_equal:special_start_date',
         ], $messages);
+
+
         if ($validatedData->fails()) {
             return response()->json(['errors' => $validatedData->errors()->all()], 400);
         } else {

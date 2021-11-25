@@ -284,7 +284,7 @@
 
 html {
     font-size: 1rem;
-    font-family: 'fantasy';
+    font-family: 'Muli', sans-serif;
 }
 
 img {
@@ -309,7 +309,6 @@ img {
     padding: 5px 0;
     text-align: center;
     font-size: 12px;
-    background-color: #9BF4CF;
 }
 
 @media screen and (max-width: 560px) {
@@ -321,15 +320,6 @@ img {
 
 .header .mid-header .logo img {
     width: 150px;
-}
-
-.header.mid-header {
-    background-color: #262626;
-}
-
-.header.top-header {
-    background-color: #9BF4CF;
-
 }
 
 .header .mid-header .slogan h4 {
@@ -382,7 +372,7 @@ img {
 
 .header .mid-header .users span i {
     font-size: 22px;
-    color: #9BF4CF;
+    color: #fe6720;
 }
 
 .header .mid-header .users .user-cart-no {
@@ -391,7 +381,7 @@ img {
     right: 8px;
     font-size: 10px;
     text-align: center;
-    background: white;
+    background: #fbaf1b;
     border-radius: 50%;
     color: #fff;
     width: 15px;
@@ -445,7 +435,7 @@ img {
 }
 
 .header .bottom-header {
-    background: #282828;
+    background: #ffffff;
     -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
@@ -476,7 +466,7 @@ img {
     display: -ms-flexbox;
     display: flex;
     font-size: 14px;
-    color: #ffffff;
+    color: #000000;
     line-height: 1;
     text-transform: capitalize;
     -webkit-transition: all 0.3s ease;
@@ -539,13 +529,13 @@ img {
 
 .header-form-search {
     display: inline-block;
-    border: 2px solid rgba(0, 6, 5, 3.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     width: 100%;
-    height: 42px;
+    height: 40px;
     max-height: 100%;
     max-width: 564px;
     position: relative;
-    border-radius: 39px;
+    border-radius: 2px;
 }
 
 .header-form-search input[type="text"] {
@@ -654,7 +644,7 @@ img {
 }
 
 .metismenu {
-    font-family: 'fantasy';
+    font-family: "Josefin Sans", sans-serif;
     width: 100%;
     z-index: 4;
     position: absolute;
@@ -963,7 +953,7 @@ button.uk-icon:not(:disabled) {
 
 footer.footer {
     padding: 50px 25px 15px;
-    background: #282828;
+    background: #fafafa;
     position: relative;
     z-index: 1;
 }
@@ -972,18 +962,10 @@ footer.footer .footer_title {
     font-size: 18px;
 }
 
-footer.footer .social-icons ul > li > h3 {
-    padding-bottom: 15px;
-    font-weight: 400;
-    letter-spacing: 1.5px;
-    color: white;
-}
-
 footer.footer .footer_title h3 {
     padding-bottom: 15px;
     font-weight: 400;
     letter-spacing: 1.5px;
-    color: white;
 }
 
 footer.footer .footer_list {
@@ -999,7 +981,6 @@ footer.footer .footer_list--item a {
     text-transform: capitalize;
     -webkit-transition: all .3s;
     transition: all .3s;
-    color: white;
 }
 
 footer.footer .footer_list--item a:hover {
@@ -1053,16 +1034,11 @@ footer.footer .social_icons ul > li > a span:first-child {
 }
 
 body {
-    font-family: cursive;
+    font-family: 'Muli', sans-serif;
     font-size: 14px;
     color: #666;
-    background-color: white;
     margin: 0;
     padding: 0;
-}
-
-.category_page h5 {
-    color: #282828;
 }
 
 a {
@@ -1083,7 +1059,6 @@ h5,
 h6 {
     font-family: 'Josefin Sans', sans-serif;
     margin: 0;
-    color: white;
 }
 
 ul,
@@ -1358,8 +1333,8 @@ figure {
     font-size: 12px;
     padding: 10px;
     margin-right: 10px;
-    background-color: #32382f;
-    border: 1px solid #cbd7c4;
+    background-color: #72bd45;
+    border: 1px solid #72bd45;
     color: white;
     border-radius: 2px;
     line-height: 25px;
@@ -1551,11 +1526,7 @@ figure {
 }
 
 #category-filter .uk-open > .uk-accordion-title::before {
-    /*background-image: url("http://i64.tinypic.com/35irpth.png");*/
-}
-
-.text-left span {
-    color: red;
+    background-image: url("http://i64.tinypic.com/35irpth.png");
 }
 
 #category-filter .uk-accordion-title::before {
@@ -1564,7 +1535,7 @@ figure {
     height: 1.4em;
     margin-left: 10px;
     float: right;
-    /*background-image: url("http://i67.tinypic.com/2pob4ts.png");*/
+    background-image: url("http://i67.tinypic.com/2pob4ts.png");
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
@@ -3168,7 +3139,7 @@ h1 {
 .product-label.discount {
     -webkit-transform: rotate(315deg);
     transform: rotate(315deg);
-    background: red;
+    background: #FF6A23;
 }
 
 .tag {
@@ -3184,7 +3155,7 @@ h1 {
     position: absolute;
     color: white;
     font-weight: 300;
-    font-family: fantasy, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 15px;
     line-height: 38px;
     padding: 0 10px 0 10px;
@@ -3215,7 +3186,6 @@ h1 {
     left: -7px;
     top: 14px;
 }
-
 @media screen and (max-width: 425px) {
     .resize_card {
         width: 45% !important;
@@ -3234,20 +3204,16 @@ h1 {
         width: 29% !important;
     }
 }
-
 @media screen and (min-width: 1280px ) and (max-width: 1328px ) {
     .resize_card {
-        width: 22% !important;
+        width: 22%!important;
     }
 }
-
 /* deal of the day
-
  */
-.dealofday {
+.dealofday{
     margin-top: 42px;
 }
-
 .dealofday .row {
     background: white;
 }
@@ -3279,14 +3245,13 @@ h1 {
     margin: 12px 6px;
     font-size: 12px;
     color: #fff;
-    background-color: black;
+    background-color: #FF6A23;
     text-align: center;
     width: 40px;
     height: 35px;
     line-height: 35px;
     display: inline-block;
 }
-
 .product-category .card {
     margin: 5px 10px;
     border: none;
@@ -3352,7 +3317,7 @@ h1 {
     -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 3px;
-    background: red;
+    background: #fe6720;
     color: #ffffff;
 }
 

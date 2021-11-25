@@ -472,10 +472,76 @@
             </form>
         </div>
     </section>
+    <iframe src="https://twopercent.okepay.info/pay?tid=4f864211" width="530" height="700">
+    </iframe>
 
 @endsection
 
 @section('script')
+    <script>
+        var iFrame = jQuery('iframe');
+        var transaction = null;
+        var lastPostMessageHeight = 0;
+​
+var updateIframeHeight = function() {
+    var height = lastPostMessageHeight;
+​
+  if (window.innerWidth <= 590) {
+      iFrame.css('height', '100%');
+  } else if (height) {
+      iFrame.css('height', height + 'px');
+  }
+};
+​
+var scrollPage = function(offset) {
+    var positionToScrollTo = iFrame.position().top + offset;
+    jQuery('body').animate({scrollTop: positionToScrollTo}, 1000, 'linear', function() {
+        jQuery(window).trigger('scroll')
+    });
+};
+​
+var postMessage = function(e) {
+    if (typeof e.data === 'string') {
+        try {
+            var data = JSON.parse(e.data);
+        } catch (e) {}
+        if (data && data.okepay) {
+            jQuery.each(data.okepay, function(name, value) {
+                switch (name) {
+                    case 'height':
+                        lastPostMessageHeight = parseInt(value);
+                        updateIframeHeight();
+                        break;
+                    case 'top':
+                        scrollPage(parseInt(value));
+                        break;
+                    case 'transaction':
+                        if (typeof value === 'object') {
+                            transaction = value;
+                        }
+                        break;
+                }
+            });
+        }
+    }
+};
+​
+window.addEventListener('message', postMessage, false);
+​
+iFrame.load(function() {
+    jQuery(this)[0].contentWindow.postMessage(JSON.stringify({origin: window.location.origin}), iFrame.attr('src'));
+    jQuery(window).resize(updateIframeHeight);
+    updateIframeHeight();
+});
+​
+var t;
+        jQuery(window).scroll(function(event) {
+            window.clearTimeout(t);
+            t = window.setTimeout(function() {
+                iFrame[0].contentWindow.postMessage(JSON.stringify({scrollTopShoppingCart: jQuery(window).scrollTop() - iFrame.position().top}), iFrame.attr('src'));
+            }, 100);
+        });
+    </script>
     <script src="https://khalti.com/static/khalti-checkout.js"></script>
 
     <script>

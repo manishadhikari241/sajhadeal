@@ -362,9 +362,7 @@
 
 
 </footer>
-<footer id="mini-footer">
-    <p>Powered by <a href="" style="color: #d3232a"> Next Nepal</a></p>
-</footer>
+
 
 
 </div>
