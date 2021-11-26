@@ -43,8 +43,8 @@
                             </tr>
                             <tr>
                                 <td align="center" style="font-family:'Roboto', Arial !important">
-                                    <img src="https://i1.wp.com/www.sajhadeal.com/wp-content/uploads/2018/12/cropped-sajhadeal-logo.png?w=468&amp;ssl=1" style="max-height: 40px" alt="company logo">
-                                    <!--<a class="email-masthead_name">SajhaDeal</a>-->
+                                    <!-- <img src="https://i1.wp.com/www.sajhadeal.com/wp-content/uploads/2018/12/cropped-sajhadeal-logo.png?w=468&amp;ssl=1" style="max-height: 40px" alt="company logo"> -->
+                                    <a class="email-masthead_name">Blaack Clothing Nepal</a>
                                 </td>
                             </tr>
                             <tr>

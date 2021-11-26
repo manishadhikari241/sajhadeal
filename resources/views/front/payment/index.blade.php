@@ -1,5 +1,5 @@
 @extends('front.master_front')
-@section('title','SajhaDeals')
+@section('title','Blaack')
 
 @section('content')
 

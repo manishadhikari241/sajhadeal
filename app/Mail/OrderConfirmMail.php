@@ -29,7 +29,7 @@ class OrderConfirmMail extends Mailable
      */
     public function build()
     {
-        return $this->from('administration@sajhadeal.com')
+        return $this->from(env('MAIL_FROM_ADDRESS'))
             ->view('mail.order_confirmation_mail')
             ->with('content',$this->data);
     }

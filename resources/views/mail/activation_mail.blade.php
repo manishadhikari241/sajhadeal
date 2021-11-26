@@ -178,8 +178,8 @@
                 <tr>
                     <td class="email-masthead">
 
-                        <img src="https://i1.wp.com/www.sajhadeal.com/wp-content/uploads/2018/12/cropped-sajhadeal-logo.png?w=468&amp;ssl=1" style="max-height: 40px" alt="company logo">
-                        <a class="email-masthead_name">SajhaDeal</a>
+                        <!-- <img src="https://i1.wp.com/www.sajhadeal.com/wp-content/uploads/2018/12/cropped-sajhadeal-logo.png?w=468&amp;ssl=1" style="max-height: 40px" alt="company logo"> -->
+                        <a class="email-masthead_name">Blaack</a>
                     </td>
                 </tr>
                 <!-- Email Body -->
@@ -190,7 +190,7 @@
                             <tr>
                                 <td class="content-cell">
                                     <h1>Verify your email address</h1>
-                                    <p>Thanks for signing up for SajhaDeal! We're excited to have you as a user.</p>
+                                    <p>Thanks for signing up for Blaack! We're excited to have you as a user.</p>
                                     <!-- Action -->
                                     <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
                                         <tr>
@@ -201,7 +201,7 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <p>Thanks,<br>The SajhaDeal Team</p>
+                                    <p>Thanks,<br>Blaack Shopping</p>
                                     <!-- Sub copy -->
                                     <table class="body-sub">
                                         <tr>

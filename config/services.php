@@ -40,16 +40,16 @@ return [
         ],
     ],
 
-    'google' => [
-        'client_id' => '750386546395-pu2mvb8a5ulukb7o0b4af18vslk668rh.apps.googleusercontent.com',
-        'client_secret' => 'sdK-TemWuOa7N2URYFMFv-cG',
-        'redirect' => 'https://sajhadeal.com/login/google/callback',
-    ],
+    // 'google' => [
+    //     'client_id' => '750386546395-pu2mvb8a5ulukb7o0b4af18vslk668rh.apps.googleusercontent.com',
+    //     'client_secret' => 'sdK-TemWuOa7N2URYFMFv-cG',
+    //     'redirect' => 'https://sajhadeal.com/login/google/callback',
+    // ],
 
-    'facebook' => [
-        'client_id' => '599765137114127',
-        'client_secret' => 'ef569cec11ae80ec0240322d37d4e279',
-        'redirect' => 'https://sajhadeal.com/login/facebook/callback',
-    ],
+    // 'facebook' => [
+    //     'client_id' => '599765137114127',
+    //     'client_secret' => 'ef569cec11ae80ec0240322d37d4e279',
+    //     'redirect' => 'https://sajhadeal.com/login/facebook/callback',
+    // ],
 
 ];

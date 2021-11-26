@@ -1,5 +1,5 @@
 @extends('front.master_front')
-@section('title','SajhaDeal')
+@section('title','Blaack')
 @section('styles')
 
     <link rel="stylesheet" href="{{asset('front/css/blogs/style.css')}}">
